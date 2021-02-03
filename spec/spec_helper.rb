@@ -14,9 +14,9 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
-if ENV['RAILS_ENV'] == 'test'
-  require 'simplecov'
-  SimpleCov.start 'rails'
+if ENV["RAILS_ENV"] == "test"
+  require "simplecov"
+  SimpleCov.start "rails"
 end
 
 RSpec.configure do |config|

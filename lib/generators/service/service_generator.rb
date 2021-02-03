@@ -1,5 +1,5 @@
 class ServiceGenerator < Rails::Generators::NamedBase
-  source_root File.expand_path('templates', __dir__)
+  source_root File.expand_path("templates", __dir__)
 
   def create_service_files
     template "service.rb", File.join("app/services", class_path, "#{file_name}.rb")

@@ -1,4 +1,4 @@
-require 'dry/monads/do'
+require "dry/monads/do"
 
 class BaseService
   extend Dry::Initializer
