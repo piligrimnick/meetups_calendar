@@ -1,0 +1,15 @@
+parallel: true           # default: false
+
+ignore:
+  - './**/*':
+    - Style/RescueModifier
+    - Style/StringLiterals
+    - Style/StringLiteralsInInterpolation
+    - Lint/AssignmentInCondition
+    - Security/YAMLLoad
+    - Layout/SpaceInsideHashLiteralBraces
+    - Layout/ArgumentAlignment
+    - Standard/SemanticBlocks
+  - 'config/**/*'
+  - 'spec/**/*':
+    - Layout/EmptyLinesAroundBlockBody

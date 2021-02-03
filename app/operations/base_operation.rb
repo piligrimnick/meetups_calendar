@@ -1,0 +1,2 @@
+class BaseOperation < BaseService
+end

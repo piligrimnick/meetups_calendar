@@ -1,0 +1,9 @@
+<% class_path.each.with_index do |ns, i| -%>
+<%= indent("module #{ns.camelize}", i*2) %>
+<% end -%>
+<%= indent("class #{file_name.camelize} < BaseOperation", class_path.length * 2) %>
+<%= indent(interface, class_path.length * 2 + 2) -%>
+<%= indent('end', class_path.length * 2) %>
+<% class_path.length.times.reverse_each do |i| -%>
+<%= indent('end', i * 2) %>
+<% end -%>

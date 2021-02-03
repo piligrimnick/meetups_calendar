@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :users
+  root to: "home#index"
+
+  scope module: :api, defaults: { format: :json }, path: 'api' do
+    scope module: :v1, constraints: Constraints::ApiConstraint.new(version: 1, default: true) do
+    end
+  end
 end
