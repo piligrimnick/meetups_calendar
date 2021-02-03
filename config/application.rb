@@ -32,10 +32,7 @@ module MeetupsCalendar
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.eager_load_paths << Rails.root.join("lib")
-    config.eager_load_paths << Rails.root.join("app", "services")
-    config.eager_load_paths << Rails.root.join("app", "contracts")
-    config.eager_load_paths << Rails.root.join("app", "operations")
-    config.eager_load_paths << Rails.root.join("app", "validators")
+    config.eager_load_paths << Rails.root.join("app")
 
     # Don't generate system test files.
     config.generators.system_tests = nil

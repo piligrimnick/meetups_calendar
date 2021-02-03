@@ -1,20 +1,5 @@
-<div class="field">
-  <%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-</div>
-  <div class="field">
-  <%= f.label :username %><br />
-  <%= f.text_field :username, autocomplete: "username" %>
-</div>
-<div class="field">
-  <%= f.label :name %><br />
-  <%= f.text_field :name, autocomplete: "given-name" %>
-</div>
-<div class="field">
-  <%= f.label :midle_name %><br />
-  <%= f.text_field :middle_name, autocomplete: "additional-name" %>
-</div>
-<div class="field">
-  <%= f.label :last_name %><br />
-  <%= f.text_field :last_name, autocomplete: "family-name" %>
-</div>
+<%= f.input :email, autofocus: true, autocomplete: "email", required: true %>
+<%= f.input :username, autocomplete: "username", required: true %>
+<%= f.input :name, autocomplete: "given-name", required: true %>
+<%= f.input :middle_name, autocomplete: "additional-name" %>
+<%= f.input :last_name, autocomplete: "family-name", required: true %>

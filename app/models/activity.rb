@@ -1,4 +1,6 @@
 class Activity < ApplicationRecord
+  DEFAULT_DECORATOR = ActivityDecorator
+
   ACTIVITY_TYPES = {
     "internal_meetup" => 0,
     "public_meetup" => 1,
@@ -15,4 +17,13 @@ class Activity < ApplicationRecord
   validates :short_description, length: {maximum: 255}
 
   validate { |activity| TimeIntervalValidator.new(activity).validate }
+
+
+  DEFAULT_DECORATOR.instance_methods(false).each do |m|
+    delegate(m, to: :decorated)
+  end
+
+  def decorated
+    @decorated ||= DEFAULT_DECORATOR.new(self)
+  end
 end

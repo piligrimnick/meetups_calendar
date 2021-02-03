@@ -27,6 +27,11 @@ gem "jbuilder", "~> 2.7"
 gem "bootsnap", ">= 1.4.4", require: false
 
 gem "devise"
+gem "action_policy"
+
+gem "simple_form"
+gem 'bootstrap', '~> 4.6.0'
+gem 'jquery-rails'
 
 gem "dry-types"
 gem "dry-initializer"

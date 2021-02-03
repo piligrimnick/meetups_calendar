@@ -1,0 +1,17 @@
+@import "bootstrap";
+@import "**/*";
+
+html, body {
+  height: 100%;
+}
+
+.footer {
+  padding: 30px 15px;
+  width: 100%;
+}
+
+body {
+  & > main.container {
+    padding: 40px 15px;
+  }
+}

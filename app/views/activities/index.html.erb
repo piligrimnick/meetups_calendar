@@ -1,0 +1,36 @@
+<h1>Activities</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Time</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @activities.each do |activity| %>
+      <tr>
+        <td><%= activity.title %></td>
+        <td><%= activity.author %></td>
+        <!-- todo: move to presenter -->
+        <td><%= activity.start_at.to_formatted_s(:long) %></td>
+        <td>
+          <%= link_to 'Show', activity %>
+          <% if allowed_to?(:change?, activity) %>
+            <%= link_to 'Edit', edit_activity_path(activity) %>
+            <%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Activity', new_activity_path %> |
+<%= link_to 'Download as CSV', download_csv_activities_url(format: :csv) %>
+
