@@ -1,0 +1,2 @@
+class ConferenceSpeech < Activity
+end

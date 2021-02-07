@@ -1,32 +1,37 @@
-class OperationGenerator < Rails::Generators::NamedBase
-  source_root File.expand_path("templates", __dir__)
+require 'rails/generators'
+module Generators
+  module Operation
+    class OperationGenerator < Rails::Generators::NamedBase
+      source_root File.expand_path("templates", __dir__)
 
-  def create_operation_files
-    template "operation.rb", File.join("app/operations", class_path, "#{file_name}.rb")
-  end
-
-  private
-
-  def interface
-    <<~RUBY
-      def call
-        step_result = yield step
-        operation_result = yield next_step(step_result)
-
-        Success(operation_result)
+      def create_operation_files
+        template "operation.rb", File.join("app/operations", class_path, "#{file_name}.rb")
       end
 
       private
 
-      def step
-        Try[StandardError] do
-          # your code
-        end
-      end
+      def interface
+        <<~RUBY
+          def call
+            step_result = yield step
+            operation_result = yield next_step(step_result)
 
-      def next_step(param)
-        # your code
+            Success(operation_result)
+          end
+
+          private
+
+          def step
+            Try[StandardError] do
+              # your code
+            end
+          end
+
+          def next_step(param)
+            # your code
+          end
+        RUBY
       end
-    RUBY
+    end
   end
 end

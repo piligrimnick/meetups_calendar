@@ -18,10 +18,10 @@
         <!-- todo: move to presenter -->
         <td><%= activity.start_at.to_formatted_s(:long) %></td>
         <td>
-          <%= link_to 'Show', activity %>
+          <%= link_to 'Show', activity_path(activity) %>
           <% if allowed_to?(:change?, activity) %>
             <%= link_to 'Edit', edit_activity_path(activity) %>
-            <%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Destroy', activity_path(activity), method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
         </td>
       </tr>

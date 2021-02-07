@@ -1,6 +1,6 @@
-<%= simple_form_for(activity) do |f| %>
+<%= simple_form_for(activity, as: :activity, url: activity_path(activity)) do |f| %>
   <%= f.input :title, autofocus: true %>
-  <%= f.input :activity_type, collection: activity.class::ACTIVITY_TYPES.keys, prompt: "Select activity type" %>
+  <%= f.input :type, collection: activity.types, prompt: "Select activity type" %>
   <%= f.input :short_description, as: :text %>
 
   <%= f.input :start_at, as: :datetime, start_year: Time.zone.now.year %>

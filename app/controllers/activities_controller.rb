@@ -26,8 +26,8 @@ class ActivitiesController < ApplicationController
 
     respond_to do |format|
       if activity.save
-        format.html { redirect_to activity, notice: "Activity was successfully created." }
-        format.json { render :show, status: :created, location: activity }
+        format.html { redirect_to activity_path(activity), notice: "Activity was successfully created." }
+        format.json { render :show, status: :created, location: activity_path(activity) }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: activity.errors, status: :unprocessable_entity }
@@ -41,8 +41,8 @@ class ActivitiesController < ApplicationController
 
     respond_to do |format|
       if activity.update(activity_params)
-        format.html { redirect_to activity, notice: "Activity was successfully updated." }
-        format.json { render :show, status: :ok, location: activity }
+        format.html { redirect_to activity_path(activity), notice: "Activity was successfully updated." }
+        format.json { render :show, status: :ok, location: activity_path(activity) }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: activity.errors, status: :unprocessable_entity }
@@ -84,6 +84,6 @@ class ActivitiesController < ApplicationController
   end
 
   def activity_params
-    params.require(:activity).permit(*%i[title activity_type short_description start_at end_at])
+    params.require(:activity).permit(*%i[title type short_description start_at end_at])
   end
 end

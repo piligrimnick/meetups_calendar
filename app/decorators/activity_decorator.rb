@@ -4,11 +4,7 @@ class ActivityDecorator < BaseDecorator
   end
 
   def show_duration?
-    %w[hackathon].include?(activity_type)
-  end
-
-  def show_logo?
-    %w[internal_meetup speech_draft].include?(activity_type)
+    true
   end
 
   def duration_in_seconds
@@ -26,5 +22,9 @@ class ActivityDecorator < BaseDecorator
   def human_readable_duration
     # todo: do realisation
     duration_in_seconds
+  end
+
+  def types
+    Activity::ACTIVITY_TYPES.map { |v| [v.titleize, v] }
   end
 end

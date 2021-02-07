@@ -1,0 +1,2 @@
+class InternalMeetup < Activity
+end

@@ -1,0 +1,2 @@
+class SpeechDraft < Activity
+end
