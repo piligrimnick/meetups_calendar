@@ -3,7 +3,7 @@
     <div class="col">
       <h1>Editing Activity</h1>
 
-      <%= render 'form', activity: @activity %>
+      <%= render 'form', activity: @activity, url: activity_path(@activity) %>
 
       <%= link_to 'Show', activity_path(@activity) %> |
       <%= link_to 'Back', activities_path %>

@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :activity do
     user
 
-    activity_type { Activity::ACTIVITY_TYPES.keys.sample }
+    type { Activity::ACTIVITY_TYPES.sample }
     title { FFaker::Lorem.word }
     short_description { FFaker::Lorem.sentence }
 

@@ -10,13 +10,6 @@ RSpec.describe Activity, type: :model do
   it { is_expected.to have_attributes(attributes) }
   it { expect { create_record }.not_to raise_error }
 
-  context "when given activity_type is a symbol" do
-    let(:attributes) { super().merge(activity_type: :hackathon) }
-
-    it { is_expected.to have_attributes(attributes.merge(activity_type: "hackathon")) }
-    it { expect { create_record }.not_to raise_error }
-  end
-
   context "when user not given" do
     let(:attributes) { super().except(:user_id) }
 
