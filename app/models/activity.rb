@@ -11,10 +11,7 @@ class Activity < ApplicationRecord
 
   belongs_to :user
 
-  validates :title, :short_description, :start_at, :end_at, presence: true
-  validates :short_description, length: {maximum: 255}
-  validates :start_at, time_interval: true
-  validates :end_at, time_interval: true
+  validates_with ContractResolver
 
   DEFAULT_DECORATOR.instance_methods(false).each do |m|
     delegate(m, to: :decorated)
